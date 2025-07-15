@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: crypto-conference-scraper
+    runtime: docker
+    plan: starter
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: OPENAI_API_KEY
+        value: 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
+      - key: USE_GOOGLE_SHEETS
+        value: true
+      - key: GOOGLE_SPREADSHEET_NAME
+        value: Crypto Conferences 2026
+      - key: SCRAPING_INTERVAL_HOURS
+        value: 12
+      - key: LOG_LEVEL
+        value: INFO
+      - key: PORT
+        value: 8080
+    buildCommand: ""
+    startCommand: "python cloud_main.py"
+    healthCheckPath: "/health"
+    autoDeploy: true 
