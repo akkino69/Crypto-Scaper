@@ -17,7 +17,5 @@ services:
         value: INFO
       - key: PORT
         value: 8080
-    buildCommand: ""
-    startCommand: "python cloud_main.py"
     healthCheckPath: "/health"
     autoDeploy: true 
